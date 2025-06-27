@@ -1,7 +1,6 @@
 
 import { CGPACard } from "@/components/dashboard/CGPACard";
 import { ProgramCreditsCard } from "@/components/dashboard/ProgramCreditsCard";
-import { CompletionChart } from "@/components/dashboard/CompletionChart";
 import { EventsCard } from "@/components/dashboard/EventsCard";
 
 export default function Dashboard() {
@@ -12,12 +11,6 @@ export default function Dashboard() {
         <ProgramCreditsCard />
         <div className="md:col-span-2">
           <EventsCard />
-        </div>
-      </div>
-      
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2">
-          <CompletionChart />
         </div>
       </div>
     </div>
