@@ -11,6 +11,9 @@ import RegisterCourses from "./pages/RegisterCourses";
 import FeeDetails from "./pages/FeeDetails";
 import Grades from "./pages/Grades";
 import HostelRequest from "./pages/HostelRequest";
+import CourseList from "./pages/CourseList";
+import DualDegree from "./pages/DualDegree";
+import TADetails from "./pages/TADetails";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +35,9 @@ const App = () => (
                 <Route path="/register-courses" element={<RegisterCourses />} />
                 <Route path="/fee-details" element={<FeeDetails />} />
                 <Route path="/grades" element={<Grades />} />
+                <Route path="/course-list" element={<CourseList />} />
+                <Route path="/dual-degree" element={<DualDegree />} />
+                <Route path="/ta-details" element={<TADetails />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
