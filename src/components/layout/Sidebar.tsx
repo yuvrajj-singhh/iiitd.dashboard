@@ -13,12 +13,14 @@ import {
   FileText, 
   MessageSquare,
   Menu,
-  X
+  X,
+  User
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navigationItems = [
   { title: "Dashboard", url: "/", icon: Home },
+  { title: "My Profile", url: "/my-profile", icon: User },
   { title: "Hostel Request", url: "/hostel-request", icon: Building },
   { title: "Register For Courses", url: "/register-courses", icon: BookOpen },
   { title: "My Fee Details", url: "/fee-details", icon: CreditCard },

@@ -14,6 +14,7 @@ import HostelRequest from "./pages/HostelRequest";
 import CourseList from "./pages/CourseList";
 import DualDegree from "./pages/DualDegree";
 import TADetails from "./pages/TADetails";
+import MyProfile from "./pages/MyProfile";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -38,6 +39,7 @@ const App = () => (
                 <Route path="/course-list" element={<CourseList />} />
                 <Route path="/dual-degree" element={<DualDegree />} />
                 <Route path="/ta-details" element={<TADetails />} />
+                <Route path="/my-profile" element={<MyProfile />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
