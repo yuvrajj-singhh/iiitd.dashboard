@@ -1,10 +1,22 @@
 
-import { Bell, Mail, Settings, User } from "lucide-react";
+import { Bell, Mail, Settings, User, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
+import { useToast } from "@/hooks/use-toast";
 
 export function Header() {
   const navigate = useNavigate();
+  const { logout } = useAuth();
+  const { toast } = useToast();
+
+  const handleLogout = () => {
+    logout();
+    toast({
+      title: "Logged Out",
+      description: "You have been successfully logged out.",
+    });
+  };
 
   return (
     <header className="bg-white border-b border-gray-200 px-6 py-4">
@@ -35,6 +47,14 @@ export function Header() {
             onClick={() => navigate('/my-profile')}
           >
             <User size={18} />
+          </Button>
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            onClick={handleLogout}
+            className="text-red-600 hover:text-red-700 hover:bg-red-50"
+          >
+            <LogOut size={18} />
           </Button>
         </div>
       </div>
