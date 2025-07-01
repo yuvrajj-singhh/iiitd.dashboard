@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Eye, EyeOff } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { BackgroundRemover } from "@/components/BackgroundRemover";
 
 interface LoginProps {
   onLogin: () => void;
@@ -15,6 +16,8 @@ export function Login({ onLogin }: LoginProps) {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [backgroundImage, setBackgroundImage] = useState('/lovable-uploads/d5ad32b6-e9b5-46c4-908c-de8ecdca5568.png');
+  const [showBackgroundRemover, setShowBackgroundRemover] = useState(true);
   const { toast } = useToast();
 
   const handleLogin = (e: React.FormEvent) => {
@@ -50,14 +53,30 @@ export function Login({ onLogin }: LoginProps) {
     });
   };
 
+  const handleImageProcessed = (imageUrl: string) => {
+    setBackgroundImage(imageUrl);
+    setShowBackgroundRemover(false);
+    toast({
+      title: "Background Updated",
+      description: "The login background has been updated with your processed image.",
+    });
+  };
+
   return (
     <div 
       className="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: `url('/lovable-uploads/d5ad32b6-e9b5-46c4-908c-de8ecdca5568.png')`
+        backgroundImage: `url('${backgroundImage}')`
       }}
     >
       <div className="bg-white rounded-lg shadow-xl p-8 w-full max-w-md mx-4">
+        {showBackgroundRemover && (
+          <div className="mb-6">
+            <h2 className="text-lg font-semibold mb-4 text-center">Customize Background</h2>
+            <BackgroundRemover onImageProcessed={handleImageProcessed} />
+          </div>
+        )}
+
         <div className="text-center mb-8">
           <div className="text-4xl font-bold text-gray-700 mb-2">IIITD</div>
           <div className="text-sm text-gray-600 mb-1">INDRAPRASTHA INSTITUTE of</div>
